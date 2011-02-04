@@ -22,12 +22,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.activedatatech</groupId>
+  <groupId>net.activedatatech</groupId>
   <artifactId>vendor</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>My Web App</name>
+  <name>Scala REST API</name>
   <description>Web Application Using Scalate, Scala and JAXRS/Jersey</description>
 
   <prerequisites>
@@ -39,7 +39,7 @@
     <jetty-port>8080</jetty-port>
     <scalateEditor>${env.SCALATE_EDITOR}</scalateEditor>
     <scalate.workdir>${basedir}/target/_scalate</scalate.workdir>
-    <scalate.package.resources>com.activedatatech.vendor.resources</scalate.package.resources>
+    <scalate.package.resources>net.activedatatech.vendor.resources</scalate.package.resources>
     <scalate.mode>development</scalate.mode>
 
     <!-- version info -->

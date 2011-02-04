@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.activedatatech.vendor
+package net.activedatatech.vendor
 
 import org.fusesource.scalate.test.{WebDriverMixin, WebServerMixin}
 import org.junit.runner.RunWith

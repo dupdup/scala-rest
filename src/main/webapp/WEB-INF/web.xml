@@ -48,7 +48,7 @@
     </init-param>
     <init-param>
       <param-name>com.sun.jersey.config.property.packages</param-name>
-      <param-value>org.fusesource.scalate.console;com.activedatatech.vendor</param-value>
+      <param-value>org.fusesource.scalate.console;net.activedatatech.vendor</param-value>
     </init-param>
     <init-param>
       <param-name>com.sun.jersey.config.feature.FilterForwardOn404</param-name>
