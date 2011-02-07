@@ -102,6 +102,7 @@
 		</dependency>
 
 		<!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
+                <!--
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-labs</artifactId>
@@ -115,6 +116,7 @@
 			<version>${gae.version}</version>
 			<scope>test</scope>
 		</dependency>
+                -->
 		
 		    <dependency>
 		      <groupId>com.googlecode.objectify</groupId>
@@ -122,13 +124,14 @@
 		      <version>2.2.2</version>
 		    </dependency>
 
+<!--
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-testing</artifactId>
 			<version>${gae.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+-->
 		<dependency>
 			<groupId>javax.transaction</groupId>
 			<artifactId>jta</artifactId>
@@ -158,7 +161,18 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+                <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-scala</artifactId>
+            <version>${jersey-version}</version>
+        </dependency>
+ <dependency>
+      <groupId>net.liftweb</groupId>
+      <artifactId>lift-json</artifactId>
+      <version>1.1-M5</version>
+    </dependency> 
 
+<!--
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
@@ -169,11 +183,14 @@
 			<artifactId>datanucleus-appengine</artifactId>
 			<version>1.0.4.1</version>
 		</dependency>
+                -->
+                <!--
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-jpa</artifactId>
 			<version>${datanucleus.version}</version>
 		</dependency>
+                -->
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-core</artifactId>
@@ -243,6 +260,11 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+    			<groupId>org.codehaus.jackson</groupId>
+    			<artifactId>jackson-jaxrs</artifactId>
+    			<version>1.6.4</version>
 		</dependency>
 
 		<!-- testing -->
