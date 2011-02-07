@@ -1,21 +1,58 @@
-package net.activedatatech.vendor.rest
-
 import javax.ws.rs._
 import javax.ws.rs.ext._
+import com.googlecode.objectify.helper._
+import com.googlecode.objectify._
+import java.util._
+import java.lang.{Long => JLong}
+import javax.persistence.Id
+import com.googlecode.objectify.annotation.Cached
 
-@Provider
-@Path("/vendor")
-class VendorService {
 
-  @GET
-  @Path("/hello.json")
-  @Produces(Array("application/json"))
-  def getMediaType = "hello"
+package net.activedatatech.vendor.data {
 
-  @GET
-  @Path("/hello.xml")
-  @Produces(Array("text/json"))
-  def getHTML = "hello"
+	trait Contact {
+	
+	  var workPhone: String = _
+	  var mobilePhone: String = _
+	  var fax: String = _
+	  var email: String = _
+	  var address: String = _
+	
+	}
+
+	class Vendor extends AnyRef with Contact {
+	
+		@Id var id: String = _
+	
+	}
+
+	object Dao extends DAOBase {
+		def register = {
+			ObjectifyService.register(classOf[Vendor]);
+		}
+	}
+
 }
+
+package net.activedatatech.vendor.rest {
+
+	@Provider
+	@Path("/vendor")
+	class VendorService {
+	
+	  @GET
+	  @Path("/hello.json")
+	  @Produces(Array("application/json"))
+	  def getMediaType = "hello"
+	
+	  @GET
+	  @Path("/hello.xml")
+	  @Produces(Array("text/json"))
+	  def getHTML = "hello"
+	}
+
+}
+
+
 
 
