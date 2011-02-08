@@ -36,6 +36,8 @@ package net.activedatatech.vendor.data {
 
 package net.activedatatech.vendor.rest {
 
+	import net.activedatatech.vendor.data._
+
 	@Provider
 	@Path("/vendor")
 	class VendorService {
@@ -43,11 +45,11 @@ package net.activedatatech.vendor.rest {
 	  @GET
 	  @Path("/hello.json")
 	  @Produces(Array("application/json"))
-	  def getMediaType = "hello"
+	  def getMediaType = { new Vendor }
 	
 	  @GET
 	  @Path("/hello.xml")
-	  @Produces(Array("text/json"))
+	  @Produces(Array("text/xml"))
 	  def getHTML = "hello"
 	}
 	
