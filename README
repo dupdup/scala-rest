@@ -1,5 +1,8 @@
 Sample Scala REST Jersey JAX-RS Api running on Google App Engine
 
+Before begin:
+export GAE_HOME=xxx (Java App Engine Dist)
+
 To run:
 mvn gae:run
 
