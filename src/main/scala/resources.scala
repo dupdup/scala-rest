@@ -1,5 +1,6 @@
 import javax.ws.rs._
 import javax.ws.rs.ext._
+import javax.xml.bind.annotation._
 import com.googlecode.objectify.helper._
 import com.googlecode.objectify._
 import java.util._
@@ -18,11 +19,12 @@ package net.activedatatech.vendor.data {
 	  @BeanProperty var fax: String = _
 	  @BeanProperty var email: String = _
 	  @BeanProperty var address: String = _
-	  @BeanProperty var name = "someone"
+	  @BeanProperty var name = "some name"
 	
 	}
 
 	@BeanProperty
+	@XmlRootElement
 	class Vendor extends AnyRef with Contact {
 	
 		@Id @BeanProperty var id: String = _
@@ -46,12 +48,12 @@ package net.activedatatech.vendor.rest {
 	class VendorService {
 	
 	  @GET
-	  @Path("/hello.json")
+	  @Path("/sample.json")
 	  @Produces(Array("application/json"))
 	  def getJson = { new Vendor }
 	
 	  @GET
-	  @Path("/hello.xml")
+	  @Path("/sample.xml")
 	  @Produces(Array("text/xml"))
 	  def getXml = { new Vendor }
 	}
