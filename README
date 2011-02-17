@@ -10,4 +10,5 @@ To deploy:
 mvn gae:update
 
 Check in your browser:
-http://localhost:8080/vendor/hello.json or .xml
+http://localhost:8080/vendor/all.xml
+http://localhost:8080/vendor/all.json
