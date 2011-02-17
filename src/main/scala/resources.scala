@@ -25,13 +25,27 @@ package net.activedatatech.vendor.data {
 
 	@BeanProperty
 	@XmlRootElement
+	@com.googlecode.objectify.annotation.Entity
 	class Vendor extends AnyRef with Contact {
 	
 		@Id @BeanProperty var id: String = _
 	
 	}
+	
+	class VendorDao extends DAOBase {
+	
+		def getOrCreateThing(id: String) = {
+			var found = ofy().find(classOf[Vendor], id)
+			if ( found == null ) {
+				found
+			} else {
+				new Vendor
+			}
+		}
+	
+	}
 
-	object Dao extends DAOBase {
+	object VendorDao {
 		def register = {
 			ObjectifyService.register(classOf[Vendor]);
 		}
@@ -48,14 +62,48 @@ package net.activedatatech.vendor.rest {
 	class VendorService {
 	
 	  @GET
-	  @Path("/sample.json")
+	  @Path("/")
+	  @Produces(Array("text/html"))
+	  def index() = {
+	  	""
+	  }
+
+	  // @GET
+	  // @Path("/json/${id}")
+	  // @Produces(Array("application/json"))
+	  // def getJson(@PathParam("id") id: String): Vendor = { 
+	  	// val o = ObjectifyService.begin();
+	  	// o.get(classOf[Vendor], id)
+	  	// def dao = new VendorDao()
+	  	// dao.getOrCreateThing(id)
+	  // }
+	
+	  // @GET
+	  // @Path("/xml/{id}")
+	  // @Produces(Array("text/xml"))
+	  // def getXml(@PathParam("id") id: String) = {
+	  	// val o = ObjectifyService.begin();
+	  	// o.get(classOf[Vendor], id)
+	  	// def dao = new VendorDao()
+	  	// dao.getOrCreateThing(id)
+	  // }
+	  
+	  @GET
+	  @Path("/all.json")
 	  @Produces(Array("application/json"))
-	  def getJson = { new Vendor }
+	  def allJson() = { 
+	  	val o = ObjectifyService.begin();
+	  	o.query(classOf[Vendor]).list()
+	  }
 	
 	  @GET
-	  @Path("/sample.xml")
+	  @Path("/all.xml")
 	  @Produces(Array("text/xml"))
-	  def getXml = { new Vendor }
+	  def allXml() = {
+	  	val o = ObjectifyService.begin();
+	  	o.query(classOf[Vendor]).list()
+	  }
+	  
 	}
 	
 
